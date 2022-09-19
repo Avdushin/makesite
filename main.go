@@ -13,11 +13,8 @@ import (
 )
 
 const (
-	appDir     = "makesite"
-	appName    = "MakeSite"
-	linuxApp   = "/usr/" + appDir
-	WindowsApp = "%AppData%\\" + appDir
-	SCSSrepo   = "https://github.com/Avdushin/WebSiteBase"
+	appName  = "MakeSite"
+	SCSSrepo = "https://github.com/Avdushin/WebSiteBase"
 )
 
 var prName string // Project name
@@ -36,10 +33,9 @@ func main() {
 		usage()
 	} else {
 		whatOS()
-		os.RemoveAll(createApp)
-		createAppFolder(createApp)
+		os.RemoveAll(createApp)    // Clear the App directory
+		createAppFolder(createApp) // Create the App directory
 		del()
-		os.RemoveAll("WebSiteBase")
 		whatStyle()
 		makeCopy(createApp)
 		del()
@@ -68,7 +64,7 @@ func whatOS() {
 	case "windows":
 		fmt.Println("OS: Windows")
 	case "darwin":
-		fmt.Println("OS: MAC operating system")
+		fmt.Println("OS: MAC")
 	case "linux":
 		fmt.Println("OS: Linux")
 
